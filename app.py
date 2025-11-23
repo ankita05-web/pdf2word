@@ -31,5 +31,10 @@ def index():
 
     return render_template("index.html")
 
+# ✔ Add this so Render health check passes
+@app.route("/healthz")
+def health():
+    return "OK", 200
+
 if __name__ == "__main__":
     app.run()
