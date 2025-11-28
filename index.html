@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Word Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>📄 PDF to Word Converter</h1>
+    <p class="lead">Convert your PDFs into Word documents instantly.</p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+              <div>{{ message }}</div>
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" enctype="multipart/form-data" id="pdfForm">
+        <input type="file" name="pdfs" multiple required>
+        <input type="text" name="pages" placeholder="Pages to convert (e.g. 1-3,5)">
+        <button type="submit">Convert PDFs</button>
+    </form>
+
+    <div class="progress mt-4 d-none" id="progressContainer">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" style="width: 0%"></div>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById('pdfForm');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressBar = document.getElementById('progressBar');
+
+    form.addEventListener('submit', function(event){
+        progressContainer.classList.remove('d-none');
+        progressBar.style.width = '30%';
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
