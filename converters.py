@@ -1,15 +1,27 @@
 import pdfplumber
 from docx import Document
+import os
 
-def pdf_to_word(pdf_file, word_path):
-    document = Document()
-
-    with pdfplumber.open(pdf_file) as pdf:
-        for page in pdf.pages:
+def pdf_to_word(pdf_path, pages=None, output_path=None):
+    """
+    Converts a PDF file to Word document.
+    """
+    if not output_path:
+        output_path = os.path.splitext(pdf_path)[0] + ".docx"
+    
+    doc = Document()
+    with pdfplumber.open(pdf_path) as pdf:
+        if pages:
+            pages_to_extract = [p-1 for p in pages if 0 < p <= len(pdf.pages)]
+        else:
+            pages_to_extract = range(len(pdf.pages))
+        for i in pages_to_extract:
+            page = pdf.pages[i]
             text = page.extract_text()
+            if text:
+                for line in text.split('\n'):
+                    doc.add_paragraph(line)
+                doc.add_paragraph("\n")  # page break
 
-            if text and text.strip():
-                document.add_paragraph(text)
-                document.add_page_break()
-
-    document.save(word_path)
+    doc.save(output_path)
+    return output_path
