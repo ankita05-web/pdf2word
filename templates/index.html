@@ -4,21 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PDF to Word Converter</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  <!-- Embedded CSS -->
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Body with background image */
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url("{{ url_for('static', filename='images/background.jpg') }}"); /* Put your image in static/images */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    /* Dark overlay for readability */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+
+    /* Container */
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      color: #fff;
+    }
+
+    /* Heading */
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    /* File input */
+    input[type="file"] {
+      margin-top: 10px;
+      margin-bottom: 15px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      color: #000;
+    }
+
+    #file-name {
+      margin-bottom: 20px;
+      font-style: italic;
+      display: block;
+    }
+
+    /* Button */
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+    }
+
+    /* Loading text */
+    #loading {
+      margin-top: 20px;
+      font-weight: bold;
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 400px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="overlay">
-    <div class="container">
-      <h1>PDF to Word Converter</h1>
-      
-      <form id="upload-form" action="/convert" method="POST" enctype="multipart/form-data">
-        <input type="file" name="pdf_file" id="fileElem" accept=".pdf">
-        <span id="file-name">No file chosen</span>
-        <button type="submit">Convert to Word</button>
-      </form>
-      
-      <div id="loading">Processing your file...</div>
-    </div>
+  <div class="container">
+    <h1>PDF to Word Converter</h1>
+
+    <form id="upload-form" action="/convert" method="POST" enctype="multipart/form-data">
+      <input type="file" name="pdf_file" id="fileElem" accept=".pdf">
+      <span id="file-name">No file chosen</span>
+      <br>
+      <button type="submit">Convert to Word</button>
+    </form>
+
+    <div id="loading">Processing your file...</div>
   </div>
 
   <script>
