@@ -10,10 +10,31 @@
     <div class="container">
         <h1>PDF to Word Converter</h1>
 
-        <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="pdf_file" accept=".pdf" required>
+        <form method="POST" action="/convert" enctype="multipart/form-data">
+            <input type="file" name="pdf_file" id="fileElem" accept=".pdf" required>
+            <span id="file-name">No file chosen</span>
+            <br>
             <button type="submit">Convert to Word</button>
         </form>
+
+        <div id="loading">Processing your file...</div>
     </div>
+
+    <script>
+        const fileInput = document.getElementById('fileElem');
+        const fileName = document.getElementById('file-name');
+        const loading = document.getElementById('loading');
+        const form = document.querySelector('form');
+
+        // Update file name when user selects a file
+        fileInput.addEventListener('change', () => {
+            fileName.textContent = fileInput.files.length ? fileInput.files[0].name : 'No file chosen';
+        });
+
+        // Show loading message when submitting
+        form.addEventListener('submit', () => {
+            loading.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
