@@ -1,40 +1,34 @@
 from flask import Flask, render_template, request, send_file
 import os
-from converters import pdf_to_word
 
 app = Flask(__name__)
+
+# Ensure a folder exists to store uploads
 UPLOAD_FOLDER = "uploads"
-OUTPUT_FOLDER = "output"
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-os.makedirs(OUTPUT_FOLDER, exist_ok=True)
-
-@app.route("/", methods=["GET", "POST"])
+@app.route('/')
 def index():
-    if request.method == "POST":
-        if "pdf_file" not in request.files:
-            return "No file uploaded"
-        
-        pdf = request.files["pdf_file"]
-        if pdf.filename == "":
-            return "No file selected"
+    return render_template('index.html')
 
-        pdf_path = os.path.join(UPLOAD_FOLDER, pdf.filename)
-        pdf.save(pdf_path)
+@app.route('/convert', methods=['POST'])
+def convert():
+    if 'pdf_file' not in request.files:
+        return "No file uploaded"
 
-        word_filename = pdf.filename.rsplit(".", 1)[0] + ".docx"
-        word_path = os.path.join(OUTPUT_FOLDER, word_filename)
+    pdf_file = request.files['pdf_file']
 
-        pdf_to_word(pdf_path, word_path)
+    if pdf_file.filename == '':
+        return "No file selected"
 
-        return send_file(word_path, as_attachment=True)
+    # Save the file
+    save_path = os.path.join(UPLOAD_FOLDER, pdf_file.filename)
+    pdf_file.save(save_path)
 
-    return render_template("index.html")
-
-# ✔ Add this so Render health check passes
-@app.route("/healthz")
-def health():
-    return "OK", 200
+    # Here you can call your PDF-to-Word conversion function
+    # For now, just return a success message
+    return f"File received: {pdf_file.filename}"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000, debug=True)
