@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PDF to Word Converter</title>
-  
-  <!-- Embedded CSS -->
+
   <style>
     /* Reset */
     * {
@@ -15,32 +14,30 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Body with background image */
+    /* Body background with image */
     body {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url("{{ url_for('static', filename='images/background.jpg') }}"); /* Put your image in static/images */
+      background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
     }
 
-    /* Dark overlay for readability */
+    /* Overlay for readability */
     body::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
-    /* Container */
+    /* Container styling */
     .container {
       position: relative;
       z-index: 1;
@@ -54,13 +51,11 @@
       color: #fff;
     }
 
-    /* Heading */
     h1 {
       margin-bottom: 20px;
       font-size: 2.5rem;
     }
 
-    /* File input */
     input[type="file"] {
       margin-top: 10px;
       margin-bottom: 15px;
@@ -77,7 +72,6 @@
       display: block;
     }
 
-    /* Button */
     button {
       margin-top: 15px;
       padding: 10px 20px;
@@ -94,26 +88,18 @@
       background: linear-gradient(45deg, #6a11cb, #2575fc);
     }
 
-    /* Loading text */
     #loading {
       margin-top: 20px;
       font-weight: bold;
       display: none;
     }
 
-    /* Responsive */
     @media (max-width: 400px) {
-      .container {
-        width: 90%;
-        padding: 20px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
+      .container { width: 90%; padding: 20px; }
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
     <h1>PDF to Word Converter</h1>
