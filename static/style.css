@@ -1,4 +1,4 @@
-/* Background image */
+/* Full background image */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -10,13 +10,12 @@ body {
     align-items: center;
 }
 
-/* Glass Effect Form Box */
+/* Glass effect container */
 .container {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.25); /* slightly transparent */
     padding: 40px 35px;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
     text-align: center;
     width: 350px;
 }
@@ -35,7 +34,7 @@ h1 {
     font-size: 14px;
 }
 
-/* File input box */
+/* File input */
 .upload-box {
     display: block;
     background: white;
@@ -51,13 +50,13 @@ h1 {
     display: none;
 }
 
-/* File name display */
+/* File name */
 #file-name {
     color: #fff;
     margin-bottom: 15px;
 }
 
-/* Convert Button */
+/* Convert button */
 .btn {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     border: none;
@@ -72,5 +71,5 @@ h1 {
 
 .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 120, 180, 0.4);
+    box-shadow: 0 6px 20px rgba(255,120,180,0.4);
 }
