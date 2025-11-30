@@ -12,10 +12,10 @@
         <p class="subtitle">Convert your PDF into a clean Word (.docx) file instantly.</p>
 
         <form id="convertForm" action="/convert" method="POST" enctype="multipart/form-data">
-            <label class="upload-box">
+            <div class="upload-box">
                 <input type="file" id="pdfInput" name="pdf_file" accept="application/pdf">
                 <span id="fileName">📄 Choose PDF File</span>
-            </label>
+            </div>
 
             <p id="errorMsg" class="error">⚠ Please select a PDF file!</p>
 
