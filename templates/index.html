@@ -10,53 +10,40 @@
     <div class="container">
         <h1>PDF → Word Converter</h1>
         <p class="subtitle">Convert your PDF into a clean Word (.docx) file instantly.</p>
-
-        <form id="convertForm" action="/convert" method="POST" enctype="multipart/form-data">
-            <div class="upload-box">
-                <input type="file" id="pdfInput" name="pdf_file" accept="application/pdf">
-                <span id="fileName">📄 Choose PDF File</span>
-            </div>
-
-            <p id="errorMsg" class="error">⚠ Please select a PDF file!</p>
-
+        
+        <form action="/convert" method="POST" enctype="multipart/form-data" id="pdfForm">
+            <label class="upload-box">
+                📄 Choose PDF File
+                <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" required>
+            </label>
+            <p id="file-name">No file chosen</p>
+            <p id="error-msg" style="color: red; display: none;">Please select a PDF file!</p>
+            
             <button type="submit" class="btn">Convert to Word</button>
         </form>
-
-        <!-- Loading Animation -->
-        <div id="loading" class="loading" style="display:none;">⏳ Processing your file...</div>
-
-        <!-- Success Message -->
-        <div id="successMsg" class="success" style="display:none;">✅ Your file has been converted!</div>
     </div>
 
-<script>
-    const input = document.getElementById("pdfInput");
-    const fileName = document.getElementById("fileName");
-    const errorMsg = document.getElementById("errorMsg");
-    const form = document.getElementById("convertForm");
-    const loading = document.getElementById("loading");
-    const successMsg = document.getElementById("successMsg");
+    <script>
+        const fileInput = document.getElementById('pdf_file');
+        const fileName = document.getElementById('file-name');
+        const errorMsg = document.getElementById('error-msg');
+        const form = document.getElementById('pdfForm');
 
-    // Show selected file name
-    input.addEventListener("change", () => {
-        if (input.files.length > 0) {
-            fileName.textContent = "📄 " + input.files[0].name;
-            errorMsg.style.display = "none";
-        } else {
-            fileName.textContent = "📄 Choose PDF File";
-        }
-    });
+        fileInput.addEventListener('change', () => {
+            if(fileInput.files.length > 0){
+                fileName.textContent = fileInput.files[0].name;
+                errorMsg.style.display = 'none';
+            } else {
+                fileName.textContent = 'No file chosen';
+            }
+        });
 
-    // Show error if no file selected on submit & show loading
-    form.addEventListener("submit", (e) => {
-        if (input.files.length === 0) {
-            e.preventDefault();
-            errorMsg.style.display = "block";
-        } else {
-            errorMsg.style.display = "none";
-            loading.style.display = "block";
-        }
-    });
-</script>
+        form.addEventListener('submit', (e) => {
+            if(fileInput.files.length === 0){
+                e.preventDefault();
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
