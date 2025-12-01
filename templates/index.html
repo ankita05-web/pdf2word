@@ -1,49 +1,53 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF → Word Converter</title>
+
+    <title>PDF to Word Converter</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
+
 <body>
-    <div class="container">
-        <h1>PDF → Word Converter</h1>
-        <p class="subtitle">Convert your PDF into a clean Word (.docx) file instantly.</p>
-        
-        <form action="/convert" method="POST" enctype="multipart/form-data" id="pdfForm">
-            <label class="upload-box">
-                📄 Choose PDF File
-                <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" required>
-            </label>
-            <p id="file-name">No file chosen</p>
-            <p id="error-msg" style="color: red; display: none;">Please select a PDF file!</p>
-            
-            <button type="submit" class="btn">Convert to Word</button>
-        </form>
-    </div>
 
-    <script>
-        const fileInput = document.getElementById('pdf_file');
-        const fileName = document.getElementById('file-name');
-        const errorMsg = document.getElementById('error-msg');
-        const form = document.getElementById('pdfForm');
+ 
 
-        fileInput.addEventListener('change', () => {
-            if(fileInput.files.length > 0){
-                fileName.textContent = fileInput.files[0].name;
-                errorMsg.style.display = 'none';
-            } else {
-                fileName.textContent = 'No file chosen';
-            }
-        });
+<div class="container">
 
-        form.addEventListener('submit', (e) => {
-            if(fileInput.files.length === 0){
-                e.preventDefault();
-                errorMsg.style.display = 'block';
-            }
-        });
-    </script>
+    <h1>PDF → Word Converter</h1>
+
+    <p class="subtitle">Convert your PDF into a clean Word (.docx) file instantly.</p>
+
+ 
+
+    <form action="/convert" method="POST" enctype="multipart/form-data">
+
+        <label class="upload-box">
+
+            <input type="file" name="pdf_file" accept="application/pdf" required>
+
+            <span>📄 Choose PDF File</span>
+
+        </label>
+
+ 
+
+        <button type="submit" class="btn">Convert to Word</button>
+
+    </form>
+
+</div>
+
+ 
+
 </body>
+
 </html>
+
+ 
