@@ -9,30 +9,30 @@ body {
     align-items: center;
 }
 
-/* 🟦 Glass Effect Form Box - BIG */
+/* 🟦 Glass Effect Form Box - EXTRA LARGE */
 .container {
     background: rgba(255, 255, 255, 0.15);
-    padding: 70px 60px;      /* big padding for spacious look */
-    border-radius: 25px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(12px);
+    padding: 100px 80px;       /* very spacious padding */
+    border-radius: 30px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
     text-align: center;
-    width: 650px;            /* much wider */
-    max-width: 95vw;         /* responsive on smaller screens */
+    width: 900px;              /* much wider */
+    max-width: 95vw;           /* responsive on smaller screens */
 }
 
 /* Title */
 h1 {
     color: white;
-    font-size: 32px;         /* bigger heading */
-    margin-bottom: 20px;
+    font-size: 40px;           /* big heading */
+    margin-bottom: 25px;
 }
 
 /* Subtitle */
 .subtitle {
     color: #e8e8e8;
-    margin-bottom: 30px;
-    font-size: 18px;
+    margin-bottom: 40px;
+    font-size: 20px;
 }
 
 /* 📄 File input box (stylish) */
@@ -40,11 +40,12 @@ h1 {
     display: block;
     background: white;
     color: #444;
-    padding: 15px;
+    padding: 18px;
     border-radius: 12px;
     cursor: pointer;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     font-weight: 600;
+    font-size: 16px;
 }
 
 .upload-box input {
@@ -55,10 +56,10 @@ h1 {
 .btn {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     border: none;
-    padding: 15px 35px;
-    border-radius: 30px;
+    padding: 18px 40px;
+    border-radius: 35px;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     transition: 0.3s;
     width: 100%;
@@ -66,5 +67,5 @@ h1 {
 
 .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 120, 180, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 120, 180, 0.4);
 }
