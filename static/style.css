@@ -12,19 +12,18 @@ body {
 /* 🟦 Glass Effect Form Box */
 .container {
     background: rgba(255, 255, 255, 0.15);
-    padding: 50px 45px;       /* increased padding */
+    padding: 50px 45px;       /* slightly bigger padding */
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     text-align: center;
-    width: 420px;             /* increased width */
-    max-width: 90vw;          /* responsive on small screens */
+    width: 420px;             /* slightly bigger width */
 }
 
 /* Title */
 h1 {
     color: white;
-    font-size: 28px;          /* slightly bigger */
+    font-size: 26px;
     margin-bottom: 12px;
 }
 
@@ -32,7 +31,7 @@ h1 {
 .subtitle {
     color: #e8e8e8;
     margin-bottom: 25px;
-    font-size: 15px;          /* slightly bigger */
+    font-size: 14px;
 }
 
 /* 📄 File input box (stylish) */
