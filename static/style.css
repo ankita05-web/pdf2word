@@ -12,12 +12,12 @@ body {
 /* 🟦 Glass Effect Form Box - EXTRA LARGE */
 .container {
     background: rgba(255, 255, 255, 0.15);
-    padding: 100px 80px;       /* very spacious padding */
+    padding: 90px 80px;       /* very spacious padding */
     border-radius: 30px;
     box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(15px);
     text-align: center;
-    width: 900px;              /* much wider */
+    width: 700px;              /* much wider */
     max-width: 95vw;           /* responsive on smaller screens */
 }
 
