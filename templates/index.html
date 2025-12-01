@@ -1,53 +1,39 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>PDF to Word Converter</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
-
- 
-
 <div class="container">
 
     <h1>PDF → Word Converter</h1>
-
     <p class="subtitle">Convert your PDF into a clean Word (.docx) file instantly.</p>
 
- 
-
     <form action="/convert" method="POST" enctype="multipart/form-data">
-
         <label class="upload-box">
-
             <input type="file" name="pdf_file" accept="application/pdf" required>
-
             <span>📄 Choose PDF File</span>
-
         </label>
 
- 
-
         <button type="submit" class="btn">Convert to Word</button>
-
     </form>
-
 </div>
 
- 
+<!-- ⭐ Show file name after selection -->
+<script>
+    const fileInput = document.querySelector("input[name='pdf_file']");
+    const uploadLabel = document.querySelector(".upload-box span");
+
+    fileInput.addEventListener("change", () => {
+        if (fileInput.files.length > 0) {
+            uploadLabel.textContent = "📄 " + fileInput.files[0].name;
+        }
+    });
+</script>
 
 </body>
-
 </html>
-
- 
