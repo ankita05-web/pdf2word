@@ -9,29 +9,30 @@ body {
     align-items: center;
 }
 
-/* 🟦 Glass Effect Form Box */
+/* 🟦 Glass Effect Form Box - BIG */
 .container {
     background: rgba(255, 255, 255, 0.15);
-    padding: 50px 45px;       /* slightly bigger padding */
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    padding: 70px 60px;      /* big padding for spacious look */
+    border-radius: 25px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
     text-align: center;
-    width: 420px;             /* slightly bigger width */
+    width: 650px;            /* much wider */
+    max-width: 95vw;         /* responsive on smaller screens */
 }
 
 /* Title */
 h1 {
     color: white;
-    font-size: 26px;
-    margin-bottom: 12px;
+    font-size: 32px;         /* bigger heading */
+    margin-bottom: 20px;
 }
 
 /* Subtitle */
 .subtitle {
     color: #e8e8e8;
-    margin-bottom: 25px;
-    font-size: 14px;
+    margin-bottom: 30px;
+    font-size: 18px;
 }
 
 /* 📄 File input box (stylish) */
@@ -39,10 +40,10 @@ h1 {
     display: block;
     background: white;
     color: #444;
-    padding: 12px;
+    padding: 15px;
     border-radius: 12px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-weight: 600;
 }
 
@@ -54,10 +55,10 @@ h1 {
 .btn {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     border: none;
-    padding: 12px 30px;
+    padding: 15px 35px;
     border-radius: 30px;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
     width: 100%;
