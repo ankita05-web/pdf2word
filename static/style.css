@@ -1,42 +1,39 @@
-/* 🌈 Beautiful Gradient Background */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #6a11cb, #2575fc);
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 60px;      /* controlled spacing */
 }
 
+/* Compact form box */
 .container {
     background: rgba(255, 255, 255, 0.15);
-    padding: 80px 50px;       /* increased size */
+    padding: 40px 50px;     /* reduced height */
     border-radius: 25px;
     box-shadow: 0 12px 45px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(12px);
     text-align: center;
     width: 500px;
     max-width: 90vw;
-    min-height: 420px;        /* added height */
 }
-
 
 /* Title */
 h1 {
     color: white;
-    font-size: 32px;           /* slightly bigger */
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 15px;
 }
 
 /* Subtitle */
 .subtitle {
     color: #e8e8e8;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-size: 16px;
 }
 
-/* 📄 File input box */
+/* Upload box */
 .upload-box {
     display: block;
     background: white;
@@ -49,11 +46,9 @@ h1 {
     font-size: 15px;
 }
 
-.upload-box input {
-    display: none;
-}
+.upload-box input { display: none; }
 
-/* 💙 Convert Button */
+/* Button */
 .btn {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     border: none;
@@ -62,11 +57,5 @@ h1 {
     color: white;
     font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
     width: 100%;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 120, 180, 0.4);
 }
